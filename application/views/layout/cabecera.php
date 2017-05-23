@@ -28,6 +28,20 @@
     <!-- bootstrap-daterangepicker -->
     <link href="<?php echo base_url("Maqueta/vendors/bootstrap-daterangepicker/daterangepicker.css"); ?>" rel="stylesheet">
 
+    
+     <!-- Datatables -->
+    <link href="<?php echo base_url("Maqueta/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("Maqueta/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("Maqueta/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("Maqueta/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("Maqueta/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"); ?>" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url("Maqueta/build/css/custom.min.css");?>" rel="stylesheet">
+    <script>
+    
+     var base_url ;
+        base_url= '<?php echo base_url()?>';
+    
+    </script>
+    
   </head>
