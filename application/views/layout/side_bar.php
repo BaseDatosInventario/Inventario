@@ -5,8 +5,8 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-user"></i> Usuario<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
+                      <li><a href="index.html">Administración</a></li>
+                      <li><?php echo anchor("C_redireccionar/vista_tipoUsuario","Tipo Usuario"); ?></li>
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
