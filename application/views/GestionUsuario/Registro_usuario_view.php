@@ -57,7 +57,7 @@
                             </div>
                         </form>
                         <h1 class="text-danger"></h1>
-                        <?php 
+                        <?php
                         if (isset($mensaje)) {
                             echo $mensaje;
                         }
@@ -65,10 +65,80 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
 
-        <script>
+                        <div class="x_title">
+                            <h2>Modificar Funcionario</h2>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-md-4">
+                                <div class="form-group">
+                                    <label>RUN</label>
+                                    <button  id="Python">Python</button>	
+                                    <input type="text" id="run" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> <button type="submit" onclick="mostar_funcionario()">Buscar</button>
+                                </div> 
+                            </div>
+                            ohjjjh       <div class="container" id="contenido">
+                                ohjjjh 
+                            </div>
+
+
+                            <h1 class="text-danger"></h1>
+                            <?php
+                            if (isset($mensaje)) {
+                                echo $mensaje;
+                            }
+                            ?>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+            <script>
+
+                                       
+//                                        $(document).ready(function () {
+//                                            $('#Python').click(function () {
+//                                                $("#contenido").load("<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>");
+//                                            });
+//
+//                                        });
+
+
+
+                                        function mostar_funcionario() {
+                                            var run = document.getElementById('run').value;
+//                                          var datos= 'nombre='+nombre +
+                                            $.ajax({/*Declaramos ajax*/
+                                                type: 'post', //Por qué método vamos a enviar la información.
+                                                url: '<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>', //Le especificamos la url donde un script PHP va a recibir esos datos.
+                                                data: run, //Le pasamos la variable datos, que contiene todos los datos que le habiamos pasado anteriormente
+                                                success: function (CallBack) { //Cuando los datos se envían correctamente hacemos una función que recibe un parametro le podemos poner el nombre que quieremos
+                                                    $("#contenido").html(CallBack); //Mostramos la información que nos ha devuelto el servidor en una etiqueta pasandole el CallBack.
+                                                }
+                                            });
+//                                            var run = document.getElementById('run').value;
+//                                            var xhttp = new XMLHttpRequest();
+//                                            xhttp.onreadystatechange = function () {
+//                                                if (xhttp.readyState === 4 && xhttp.status === 200) {
+//                                                    document.getElementById("funcionario").innerHTML = xhttp.responseText;
+//                                                }
+//                                            };
+//                                            xhttp.open("POST", "<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>", true);
+//                                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//                                            xhttp.send("&run=" + run + "");
+                                        }
+            </script>
+
+
+
+
+<!--        <script>
             $(document).ready(function () {
 
                 $("#show").change(function () {
@@ -95,4 +165,7 @@
 
 
 
-        </script>
+        </script>-->
+        </div>
+    </div>
+    </div>

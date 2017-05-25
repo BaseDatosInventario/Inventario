@@ -50,4 +50,57 @@ class M_funcionario extends CI_Model {
         return $dato;
     }
 
+    function buscar_funcionario($run) {
+
+        $dv = substr($run, -1); // digito verificador
+        $rn = substr($run, 0, -2);
+
+        $this->db->where('num_run', $rn);
+        $this->db->where('dv_run', $dv);
+        $dato = $this->db->get('funcionario');
+
+        if ($dato->num_rows() > 0) {
+            return $dato;
+        } else {
+            return null;
+        }
+    }
+
+    function buscar_usuario($run) {
+
+        $dv = substr($run, -1); // digito verificador
+        $rn = substr($run, 0, -2);
+
+        $this->db->where('num_run_f', $run);
+        $dato = $this->db->get('usuario');
+        if ($dato->num_rows() > 0) {
+            return $dato;
+        } else {
+            return null;
+        }
+    }
+
+    function crear_cuenta_funcionario($run, $id_tipo_usuario, $clave, $estado) {
+
+        $funcionario = $this->buscar_funcionario($run);
+        $b_usuario = $this->buscar_usuario($run);
+
+        if ($funcionario !== null && $b_usuario === null) {
+            $rn = substr($run, 0, -2);
+
+            $usuario = array(
+                'num_run_f' => $rn, 'id_tipo_usuario' => $id_tipo_usuario, 'clave' => $clave, 'estado' => $estado
+            );
+
+            $dato = $this->db->insert('usuario', $usuario);
+            return $dato;
+        } else if ($b_usuario !== null) {
+
+            return "cuenta existente";
+        } else {
+
+            return null;
+        }
+    }
+
 }

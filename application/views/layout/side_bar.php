@@ -6,8 +6,9 @@
                   <li><a><i class="fa fa-user"></i> Usuario<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><?php echo anchor("C_redireccionar/registro_usuario_view", "<span class='glyphicon glyphicon-pencil'></span> &nbsp;Registro Funcionario"); ?></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
+                      <li><?php echo anchor("C_redireccionar/crear_cuenta_view", "<span class='glyphicon glyphicon-user'></span> &nbsp;Crear Cuenta Funcionario"); ?></li>
+                      
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
