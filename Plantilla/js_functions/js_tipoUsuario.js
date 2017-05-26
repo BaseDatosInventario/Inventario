@@ -19,18 +19,17 @@ var table_tu;
          {'orderable':true,
         render:function(data,type,row)
             {
-                return "<div class='btn-group'> \n\
-                            <button type='button' class='btn btn-primary'><span class='glyphicon glyphicon-cog'></span> Opción</button> \n\
-                            <button type='button' class='btn btn-primary dropdown-toggle'\n\
-                        data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\n\
-                              <span class='caret'></span>\n\
-                              <span class='sr-only'>Toggle Dropdown</span>\n\
-                            </button>\n\
-                            <ul class='dropdown-menu'>\n\
-                                <li><a href='#' onclick='modificar_tipousuario("+row.id_tipo_usuario+",\x22"+row.nombre+"\x22 ,\x22"+row.descripcion+"\x22)'><span class='glyphicon glyphicon-edit'></span> Modificar</a></li>\n\
-                                <li><a href='#' onclick='delete_tipousuario("+row.id_tipo_usuario+",\x22"+row.nombre+"\x22)'><span class='glyphicon glyphicon-trash'></span> Eliminar</a></li>\n\
-                                </ul>\n\
-                      </div>";
+                
+             return "<div class='btn-group'><button data-toggle='dropdown' class='btn btn-primary dropdown-toggle btn-sm' type='button' aria-expanded='false'><span class='glyphicon glyphicon-cog'></span> Opción <span class='caret'></span> \n\
+                </button><ul role='menu' class='dropdown-menu'> \n\
+                     <li><a href='#' onclick='modificar_tipousuario("+row.id_tipo_usuario+",\x22"+row.Nombre+"\x22 ,\x22"+row.descripcion+"\x22)'><span class='glyphicon glyphicon-edit'></span> Modificar</a></li>\n\
+                                <li><a href='#' onclick='delete_tipousuario("+row.id_tipo_usuario+",\x22"+row.Nombre+"\x22)'><span class='glyphicon glyphicon-trash'></span> Eliminar</a></li>\n\
+                      </li>\n\
+                    </ul>\n\
+                 </div>";
+                
+                
+               
             }
         },
         {data:'id_tipo_usuario'},
