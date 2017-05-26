@@ -77,7 +77,7 @@ function modificar_tipo_usuario_ajax(){
                        
                        
                         },
-                    url: base_url+'index.php/c_tipo_usuario/modificar_ajax',
+                    url: base_url+'index.php/C_tipoUsuario/modificar_ajax',
                     success: function(data)
                     {
 //                       
@@ -114,7 +114,7 @@ function eliminar_tipousuario_ajax()
                         id_tuser: $('#id_tu').val()
 //                        '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
                     },
-                    url: base_url+'index.php/c_tipo_usuario/eliminar_tipousuario',
+                    url: base_url+'index.php/C_tipoUsuario/eliminar_tipousuario',
                     success: function(data)
                     {
 //                        $(".grupo2").show();

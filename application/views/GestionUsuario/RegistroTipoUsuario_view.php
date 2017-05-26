@@ -73,7 +73,9 @@
                          
                         </div>
                       </div>
-
+                        <?php if(isset($mensaje))
+                        { echo $mensaje; }
+                            ?>
                     </form>
                   </div>
                 </div>
@@ -145,7 +147,7 @@
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header alert alert-info">
+                    <div class="modal-header alert alert-danger">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title"><span class="glyphicon glyphicon-pushpin"></span> Mensaje</h4>
                     </div>
@@ -171,7 +173,7 @@
         
         <div class="modal-content">
             <!-- Modal Header -->
-            <div class="modal-header alerta_azul">
+            <div class="modal-header alert-info">
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
@@ -232,7 +234,7 @@
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header  alerta_azul">
+                    <div class="modal-header  alert-info">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title"><span class="glyphicon glyphicon-pushpin"></span> Mensaje</h4>
                     </div>

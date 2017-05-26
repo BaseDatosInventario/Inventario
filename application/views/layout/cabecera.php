@@ -37,11 +37,28 @@
     <link href="<?php echo base_url("Maqueta/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"); ?>" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url("Maqueta/build/css/custom.min.css");?>" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
     <script>
+    
+    function mensaje_modal(mensaje){
+   $('#modalmensaje .modal-body p').html('<span class="glyphicon glyphicon-arrow-right"></span>'+mensaje);
+   $('#modalmensaje').modal('show');}
+    
     
      var base_url ;
         base_url= '<?php echo base_url()?>';
-    
+        
+         $(document).ready(function(){    
+             $("#form_updatetipousuario").submit(function(e){
+                    e.preventDefault();
+                 //llamo al metodo de actualizar tipo usuario
+                console.log("llegue aqui");
+               modificar_tipo_usuario_ajax();
+                });
+   
+   
+});
     </script>
     
   </head>
