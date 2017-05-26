@@ -44,14 +44,14 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form action="" class="form-horizontal form-label-left input_mask">
-
+                    <form action="<?php echo base_url("index.php/C_tipoUsuario/insertar_tipousuario"); ?>" method="post" class="form-horizontal form-label-left input_mask">
+                         <?php echo form_error('nombre','<div class="alert alert-danger alert-dismissible"  role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
                       <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                          <input type="text" class="form-control has-feedback-left" id="inputSuccess2" required="true" placeholder="Ingrese el nombre del tipo usuario ejm:Admin,Vendedor,etc">
+                          <input type="text" class="form-control has-feedback-left" name="nombre" id="inputSuccess2" value="<?php echo set_value("nombre") ?>" required="true" placeholder="Ingrese el nombre del tipo usuario ejm:Admin,Vendedor,etc">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                          <textarea type="text" minlength="100" class="form-control has-feedback-left" required="true"  placeholder="Ingrese una descripcion" ></textarea>
+                          <textarea type="text" maxlength="99" name="descripcion" class="form-control has-feedback-left" required="true"  placeholder="Ingrese una descripcion" ><?php echo set_value("descripcion") ?></textarea>
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
 

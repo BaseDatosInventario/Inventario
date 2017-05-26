@@ -24,15 +24,15 @@ class C_tipoUsuario extends CI_Controller {
    
     }
      public function index_mensaje($mensaje){
-           if($this->session->userdata('id_tipo_usuario')!=null){ // si no inicio sesion lo manda al login
+         //  if($this->session->userdata('id_tipo_usuario')!=null){ // si no inicio sesion lo manda al login
          $this->load->view("layout/cabecera");
         $this->load->view("layout/menu_lateral");
         $this->load->view("layout/side_bar");
         $this->load->view("GestionUsuario/RegistroTipoUsuario_view", compact("mensaje"));
         $this->load->view("layout/footer");
-        }else{
-            redirect(base_url("index.php/c_crud/login"));
-        }
+      //  }else{
+          //  redirect(base_url("index.php/C_login/login"));
+        //}
     }
 
     public function mostrar_tipoUsuario(){
@@ -55,9 +55,9 @@ class C_tipoUsuario extends CI_Controller {
          
           if($this->form_validation->run()) /**/
           {
-              $this->load->model("m_tipo_usuario");
+              $this->load->model("M_tipoUsuario");
                   
-            if( $this->m_tipo_usuario->agregar_tipo_usuario($this->input->post("nombre"),$this->input->post("descripcion"))){
+            if( $this->M_tipoUsuario->agregar_tipo_usuario($this->input->post("nombre"),$this->input->post("descripcion"))){
                 $mensaje=' <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Exito!</strong>.  Agregado correctamente</div>';
@@ -71,11 +71,11 @@ class C_tipoUsuario extends CI_Controller {
                  $this->index_mensaje($mensaje);        
   }
                
-          }else{
-              $this->index();
           }
               
        }
+      $this->index(); // en el caso que no entre en ninguna condición redirecciona al index
+       
     }
     
     

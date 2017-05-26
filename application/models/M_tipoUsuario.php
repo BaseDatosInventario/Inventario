@@ -39,7 +39,7 @@ class M_tipoUsuario extends CI_Model {
      public function agregar_tipo_usuario($nombre,$descripcion){
            $data = array(
                             'id_tipo_usuario'=>'0',
-                            'nombre' => $nombre,
+                            'Nombre' => $nombre,
                             'descripcion'=> $descripcion,
                             'activo' => self::STATUS_ACTIVO
                             
