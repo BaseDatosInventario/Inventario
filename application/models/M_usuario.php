@@ -13,12 +13,19 @@
  */
 class M_usuario extends CI_Model{
     //put your code here
-    
+    const STATUS_DELETED = 0; //constante con el valor de eliminado
+    const STATUS_ACTIVO = 1; //constante con el valor de Usuario activo
     public function validacion_usuario($run,$password)// datos se cargan en la sesion
 	{ 
         $dv=  substr($run,-1); // digito verificador
         $rn = substr($run,0 ,-2);
-		$sql ="SELECT funcionario.num_run ,funcionario.p_nombre, funcionario.p_apellido,usuario.id_tipo_usuario,funcionario.correo_electronico  from funcionario , usuario where funcionario.num_run = usuario.num_run_f and   usuario.num_run_f =".$rn." and funcionario.dv_run ='".$dv."'  and clave='".$password."';";
+        $clave= hash("sha256",$password);
+		$sql ="SELECT funcionario.num_run ,funcionario.p_nombre,"
+                        . " funcionario.p_apellido,usuario.id_tipo_usuario,"
+                        . "funcionario.correo_electronico  from funcionario ,"
+                        . " usuario where funcionario.num_run = usuario.num_run_f and "
+                        . "  usuario.num_run_f =".$rn." and funcionario.dv_run ='".$dv."' "
+                        . " and clave='".$clave."' and usuario.activo =".self::STATUS_ACTIVO.";";
                 if ($this->db->query($sql)->num_rows() == 1){
                 return $this->db->query($sql)->row();
                 }else{

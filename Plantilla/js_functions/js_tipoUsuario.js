@@ -1,7 +1,7 @@
 var table_tu;
 
     $(document).ready(function (){
-        $('#tbl_tipousuario').dataTable({
+ $('#tbl_tipousuario').dataTable({
     'language':{
         'url':'https://cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json'
     },
@@ -12,7 +12,7 @@ var table_tu;
     'ajax':{
         'url':base_url+'index.php/C_tipoUsuario/mostrar_tipoUsuario',
         'type':'POST',
-        dataSrc:''
+         dataSrc:''
     },
     'columns':
     [

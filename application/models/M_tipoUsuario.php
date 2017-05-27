@@ -18,7 +18,8 @@ class M_tipoUsuario extends CI_Model {
     const STATUS_ACTIVO = 1; //constante con el valor de Usuario activo
 
     public function mostrar_tipos_usuario() {
-        $this->db->where("activo", self::STATUS_ACTIVO);
+      //  $this->db->select("id_tipo_usuario,Nombre,descripcion");
+       $this->db->where("activo", self::STATUS_ACTIVO);
         return $this->db->get("tipo_usuario")->result();
     }
 

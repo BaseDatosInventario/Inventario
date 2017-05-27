@@ -70,9 +70,10 @@ class C_login extends CI_Controller{
   public function iniciar_sesion(){
      
           $this->form_validation->set_rules("run","Run",'required');
-          $this->form_validation->set_rules("clave","Clave",'required');
+          $this->form_validation->set_rules("clave","Clave",'required|xss_clean');
           
            $this->form_validation->set_message("required", "El campo %s es requerido");
+           $this->form_validation->set_message("xss_clean", "El campo %s fue ingresado con un formato incorrecto");
         
            if($this->form_validation->run())
            {

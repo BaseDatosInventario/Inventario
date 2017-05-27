@@ -45,7 +45,8 @@
    $('#modalmensaje .modal-body p').html('<span class="glyphicon glyphicon-arrow-right"></span>'+mensaje);
    $('#modalmensaje').modal('show');}
     
-    
+    var csrfname = "<?php echo $this->security->get_csrf_token_name(); ?>";
+    var csrfvalue ="<?php echo $this->security->get_csrf_hash(); ?>";
      var base_url ;
         base_url= '<?php echo base_url()?>';
         

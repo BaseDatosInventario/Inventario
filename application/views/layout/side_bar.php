@@ -3,13 +3,25 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-user"></i> Usuario<span class="fa fa-chevron-down"></span></a>
+                 
+                  <!-- menu  -->
+                   <li><a><i  class="fa fa-user"></i> Usuario  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Administración</a></li>
-                      <li><?php echo anchor("C_tipoUsuario/index","Tipo Usuario"); ?></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
+                        <li><a href="#level1_1"> usuario</a>
+                        <li><a>Tipo usuario<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><?php echo anchor("C_tipoUsuario/formulario_nuevo_tipoUsuario","Agregar Tipo"); ?>
+                            </li>
+                            <li><?php echo anchor("C_tipoUsuario/index","Gestion Tipo"); ?>
+                            </li>
+                           
+                          </ul>
+                        </li>
+                        <li><a href="#level1_2">Level One</a>
+                        </li>
                     </ul>
-                  </li>
+                  </li>     
+                  
                   <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="form.html">General Form</a></li>
@@ -156,7 +168,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<?php echo base_url("Maqueta/images/img.jpg"); ?>" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -168,7 +180,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<?php echo base_url("Maqueta/images/img.jpg"); ?>" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -180,7 +192,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<?php echo base_url("Maqueta/images/img.jpg"); ?>" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -192,7 +204,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<?php echo base_url("Maqueta/images/img.jpg"); ?>" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
