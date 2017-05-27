@@ -8,16 +8,10 @@
                    <li><a><i  class="fa fa-user"></i> Usuario  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="#level1_1"> usuario</a>
-                        <li><a>Tipo usuario<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><?php echo anchor("C_tipoUsuario/formulario_nuevo_tipoUsuario","Agregar Tipo"); ?>
-                            </li>
-                            <li><?php echo anchor("C_tipoUsuario/index","Gestion Tipo"); ?>
-                            </li>
-                           
-                          </ul>
+                       
+                        <li><?php echo anchor("C_tipoUsuario/index","Gestion Tipo"); ?>
                         </li>
-                        <li><a href="#level1_2">Level One</a>
+                        <li><?php echo anchor("C_permisos/index","Gestion Permiso"); ?>
                         </li>
                     </ul>
                   </li>     

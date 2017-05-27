@@ -70,8 +70,8 @@ switch ($this->uri->segment(1))
 {
         case "C_tipoUsuario": 
         ?> <script src="<?php echo base_url("plantilla/js_functions/js_tipoUsuario.js"); ?>"></script> <?php break;
-        case "c_componente":
-        ?> <script src="<?php echo base_url("plantilla/js_functions/js_componentes.js"); ?>"></script> <?php break; 
+        case "C_permisos":
+        ?> <script src="<?php echo base_url("plantilla/js_functions/js_permiso.js"); ?>"></script> <?php break; 
         case "c_tipo_componente":
         ?> <script src="<?php echo base_url("plantilla/js_functions/js_tipo_componente.js"); ?>"></script> <?php break; 
         case "c_plataforma":

@@ -1,9 +1,9 @@
-  <!-- page content -->
+<!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Gestion Tipo Usuario</h3>
+                <h3>Gestion Permiso</h3>
               </div>
 
               <div class="title_right">
@@ -16,7 +16,7 @@
               <div class="col-md-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Registrar <small>Tipo usuario dentro del sistema</small></h2>
+                    <h2>Registrar <small>Permiso dentro del sistema</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -36,32 +36,25 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form action="<?php echo base_url("index.php/C_tipoUsuario/insertar_tipousuario"); ?>" method="post" class="form-horizontal form-label-left input_mask">
+                    <form action="<?php echo base_url("index.php/C_permisos/insertar_permiso"); ?>" method="post" class="form-horizontal form-label-left input_mask">
                          <?php echo form_error('nombre','<div class="alert alert-danger alert-dismissible"  role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
-                      <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                          <input type="text" class="form-control has-feedback-left" name="nombre" id="inputSuccess2" value="<?php echo set_value("nombre") ?>" required="true" placeholder="Ingrese el nombre del tipo usuario ejm:Admin,Vendedor,etc">
-                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                      </div>
+                 
                        
-                      <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                          <textarea type="text" maxlength="99" name="descripcion" class="form-control has-feedback-left" required="true"  placeholder="Ingrese una descripcion" ><?php echo set_value("descripcion") ?></textarea>
+                        <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                             <label for="message">Ingrese el nombre del permiso :</label>
+                          <input type="text" class="form-control has-feedback-left" name="nombre" id="inputSuccess2" value="<?php echo set_value("nombre") ?>" required="true" placeholder="Ingrese el permiso ejm:Gestion usuario,Gestión usuario,etc">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
-
-                      
-                             
+                  
+                       
                      
 
                       
-
-                     
                       
-                      
-                      
-                      <div class="ln_solid"></div>
+<!--                      <div class="ln_solid"></div>-->
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-0">
-                          <button type="submit" class="btn btn-primary">Agregar tipo usuario</button>
+                          <button type="submit" class="btn btn-primary">Agregar permiso</button>
 						  
                          
                         </div>
@@ -90,7 +83,7 @@
               <div class="col-md-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Mostrar <small>Tipo usuario dentro del sistema</small></h2>
+                    <h2>Mostrar <small>Permisos de usuario dentro del sistema</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -112,13 +105,13 @@
                     <br />
                     
                     <!--- datatable-responsive -->
-                 <table id="tbl_tipousuario" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                 <table id="tbl_permiso" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>Opcion</th>
-                          <th>Id</th>
+                          <th>Código</th>
                           <th>Nombre</th>
-                          <th>Descripción</th>
+                        
                           
                         </tr>
                       </thead>
@@ -137,7 +130,7 @@
 
               </div>
 
-                  <div id="modaldelete_tipousuario" class="modal fade" role="dialog">
+                  <div id="modaldelete_permiso" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -152,7 +145,7 @@
                     <div class="modal-footer ">
                         <input type="hidden" id="id_tu">
 
-                        <button type="button" class="btn btn-danger grupo1" onclick="eliminar_tipousuario_ajax()"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                        <button type="button" class="btn btn-danger grupo1" onclick="eliminar_permiso_ajax()"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
                         <button type="button" class="btn btn-default grupo2" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cerrar</button>
                         <button type="button" class="btn btn-default grupo1"  data-dismiss="modal"><span class="glyphicon glyphicon-remove"> </span> Cancelar</button>
                     </div>
@@ -161,8 +154,8 @@
             </div>
         </div>   
                 
-                 <form id="form_updatetipousuario">
-          <div class="modal fade" id="modal_formulario_tu" tabindex="-1" role="dialog" 
+                 <form id="form_updatepermiso">
+          <div class="modal fade" id="modal_formulario_permiso" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         
@@ -176,7 +169,7 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
                     <span class="glyphicon glyphicon-folder-open"> </span> &nbsp;
-                    Actualizar tipo usuario
+                    Actualizar permiso
                 </h4>
             </div>
             
@@ -184,22 +177,17 @@
             <div class="modal-body">
                 <div id="msj"></div>
                 <div class="input-group">
-                     <span class="input-group-addon"  id="basic-addon1">Código tipo usuario</span>
+                     <span class="input-group-addon"  id="basic-addon1">Código permiso</span>
                      <input type="number" class="form-control" disabled="true" id="codetipuser"  maxlength="10" required="true"  aria-describedby="basic-addon1">
                  </div>       
            
               <br>
                <div class="input-group">
-               <span class="input-group-addon" id="basic-addon2">Nombre tipo usuario</span>    
+               <span class="input-group-addon" id="basic-addon2">Nombre</span>    
                 <input type="text" class="form-control" id="nombre_tu"  required="true" placeholder="Ingrese.." aria-describedby="basic-addon2">
                </div>
               <br>
-               <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon2">Descripción tipo usuario</span>    
-               <textarea  id="desc_tu" class="form-control" required="true"  placeholder="Ingrese.." aria-describedby="basic-addon2"></textarea>
-                 
-               </div>
-              <br>
+              
               
                   
             </div>

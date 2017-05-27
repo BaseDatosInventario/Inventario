@@ -7,78 +7,74 @@
  */
 
 /**
- * Description of C_tipoUsuario
+ * Description of C_permisos
  *
  * @author pedrito
  */
-class C_tipoUsuario extends CI_Controller {
-    public function _construct() {
-      
-    }
-    public function index(){
-       
-        
+class C_permisos extends CI_Controller {
+    
+    
+    //put your code here
+    
+      public function index(){
         $this->load->view("layout/cabecera");
         $this->load->view("layout/menu_lateral");
         $this->load->view("layout/side_bar");
-        $this->load->view("GestionUsuario/RegistroTipoUsuario_view");
+        $this->load->view("GestionUsuario/Registro_permiso_view");
         $this->load->view("layout/footer");
-        
-   
-    }
-    
-     public function index_mensaje($mensaje){
+       }
+        public function index_mensaje($mensaje){
           
          // if($this->session->userdata('id_tipo_usuario')!=null){ // si no inicio sesion lo manda al login
         $this->load->view("layout/cabecera");
         $this->load->view("layout/menu_lateral");
         $this->load->view("layout/side_bar");
-        $this->load->view("GestionUsuario/RegistroTipoUsuario_view", compact("mensaje"));
+        $this->load->view("GestionUsuario/Registro_permiso_view", compact("mensaje"));
        $this->load->view("layout/footer");
       //  }else{
           //  redirect(base_url("index.php/C_login/login"));
         //}
     }
     
-    public function mostrar_tipoUsuario(){
+    public function mostrar_permisos(){
       
-         $this->load->model("M_tipoUsuario");
-        echo json_encode($this->M_tipoUsuario->mostrar_tipos_usuario());
+         $this->load->model("M_permiso");
+        echo json_encode($this->M_permiso->mostrar_permisos());
             
        
     }
       
     
     
-     public function insertar_tipousuario(){
+     public function insertar_permiso(){
          $mensaje="";
        if(isset($_POST["nombre"] ))
        {
          
-         $this->form_validation->set_rules('nombre', 'Nombre', 'required|callback_letras_acentos_formato');
-         $this->form_validation->set_rules('descripcion', 'Descripcion', 'required|callback_letras_acentos_formato');
-       
+         $this->form_validation->set_rules('nombre', 'Nombre', 'required|callback_letras_acentos_formato|xss_clean');
+        
          
           
           $this->form_validation->set_message('required', 'El campo {field} es requerido');
+          $this->form_validation->set_message('xss_clean', 'El campo {field} no tiene un formato correcto');
           $this->form_validation->set_message('letras_acentos_formato', 'El campo {field} debe contener solo letras');
          
           if($this->form_validation->run()) /**/
           {
-              $this->load->model("M_tipoUsuario");
+              $this->load->model("M_permiso");
                   
-            if( $this->M_tipoUsuario->agregar_tipo_usuario($this->input->post("nombre"),$this->input->post("descripcion"))){
+            if( $this->M_permiso->agregar_permiso($this->input->post("nombre"))){
                 $mensaje=' <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Exito!</strong>.  Agregado correctamente</div>';
               
-                 // $this->index_mensaje($mensaje);
+               
            }else{
                     
                  $mensaje=' <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>Exito!</strong>. Ocurrio un error al agregar </div>';
-                 //$this->index_mensaje($mensaje);        
+                
   }
                
           }
@@ -113,13 +109,13 @@ class C_tipoUsuario extends CI_Controller {
         }
     }
     
-    public function eliminar_tipousuario(){
+    public function eliminar_permiso(){
          
             if($this->input->is_ajax_request())
             {
 
-                $this->load->model("M_tipoUsuario");
-               if( $this->M_tipoUsuario->eliminar_tipo_usuario($this->input->post("id_tuser")))
+                $this->load->model("M_permiso");
+               if( $this->M_permiso->eliminar_permiso($this->input->post("id_permiso")))
                {
                     echo json_encode(array("status" => "success"));
                }else{
