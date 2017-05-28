@@ -102,7 +102,7 @@
                                   foreach ($per_si as $value) {
                                       echo " <div class='checkbox'>";
                                       echo "<label>";
-                                      echo "<input type='checkbox' class='flat' > ".$value->descripcion;
+                                      echo "<input type='checkbox' class='flat'  value='".$value->id_p_u."' > ".$value->descripcion;
                                       echo "</label>";
                                       echo "</div>";
                                   }

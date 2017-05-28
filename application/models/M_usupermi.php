@@ -24,9 +24,10 @@ class M_usupermi extends CI_Model {
                 }
     }
     public function listar_permisos_si($rum){
-        $sql="SELECT permiso.descripcion from permiso WHERE permiso.id_permiso"
-              . " = (SELECT usuario_permiso.id_permiso from usuario_permiso WHERE usuario_permiso.num_run_u = ".$rum.")";
-          if ($this->db->query($sql)->num_rows() == 1){
+       $sql="SELECT permiso.descripcion , usuario_permiso.id_p_u from permiso ,"
+               . " usuario_permiso WHERE permiso.id_permiso  ="
+               . " usuario_permiso.id_permiso and usuario_permiso.num_run_u =".$rum." ;";
+          if ($this->db->query($sql)->num_rows() >0){
                 return $this->db->query($sql)->result();
                 }else{
                     return NULL;
