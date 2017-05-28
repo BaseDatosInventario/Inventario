@@ -34,4 +34,9 @@ class M_usuario extends CI_Model{
 		
 	}
         
+        public function listarUsuario() {
+            $this->db->where("activo", self::STATUS_ACTIVO);
+            return $this->db->get("usuario")->result();
+        }
+        
        }
