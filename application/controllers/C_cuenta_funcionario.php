@@ -52,6 +52,7 @@ class C_cuenta_funcionario extends CI_Controller {
     }
 
     function t_div_usuario($run, $dv_run) {
+        
         echo'  <div class="col-sm-5 col-md-4">';
         echo '<div class="form-group">';
         echo '<label>RUN</label>';    
