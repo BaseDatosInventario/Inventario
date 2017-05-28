@@ -13,6 +13,10 @@
                         </li>
                         <li><?php echo anchor("C_permisos/index","Gestion Permiso"); ?>
                         </li>
+                        <li><?php echo anchor("C_usu_perm/index","Añadir Permiso Usuario"); ?>
+                        </li>
+                        
+                        
                     </ul>
                   </li>     
                   

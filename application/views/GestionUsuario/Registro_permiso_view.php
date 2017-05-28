@@ -150,7 +150,6 @@
                         <button type="button" class="btn btn-default grupo1"  data-dismiss="modal"><span class="glyphicon glyphicon-remove"> </span> Cancelar</button>
                     </div>
                 </div>
-
             </div>
         </div>   
                 
@@ -178,13 +177,13 @@
                 <div id="msj"></div>
                 <div class="input-group">
                      <span class="input-group-addon"  id="basic-addon1">Código permiso</span>
-                     <input type="number" class="form-control" disabled="true" id="codetipuser"  maxlength="10" required="true"  aria-describedby="basic-addon1">
+                     <input type="number" class="form-control" disabled="true" id="codepermiso"  maxlength="10" required="true"  aria-describedby="basic-addon1">
                  </div>       
            
               <br>
                <div class="input-group">
                <span class="input-group-addon" id="basic-addon2">Nombre</span>    
-                <input type="text" class="form-control" id="nombre_tu"  required="true" placeholder="Ingrese.." aria-describedby="basic-addon2">
+                <input type="text" class="form-control" id="nombre_permiso"  required="true" placeholder="Ingrese.." aria-describedby="basic-addon2">
                </div>
               <br>
               

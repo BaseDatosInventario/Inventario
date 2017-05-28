@@ -30,7 +30,7 @@ class M_permiso  extends CI_Model{
         );
         $this->db->where('id_permiso', $id);
 
-        return $this->db->update('tipo_usuario', $data);
+        return $this->db->update('permiso', $data);
     }
 
     public function eliminar_permiso($id) {

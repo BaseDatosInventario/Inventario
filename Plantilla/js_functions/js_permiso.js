@@ -63,27 +63,25 @@ function delete_permiso(code ,nombre){//metodo que pregunta en una ventana modal
  
 }
 function modificar_permiso(id_permiso,descripcion){//metodo que pregunta en una ventana modal si se quiere modificar
-  $('#codetipuser').val(id_permiso);
-  $('#nombre_tu').val(descripcion);
+  $('#codepermiso').val(id_permiso);
+  $('#nombre_permiso').val(descripcion);
   
   $('#modal_formulario_permiso').modal('show');
  
  
 }
   //'<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>'
-function modificar_tipo_usuario_ajax(){
+function modificar_permiso_ajax(){
      $.ajax({
                     type: "POST",
                     async: false,
                     dataType: "json",
                     data: {
-                        code_tu:$('#codetipuser').val(),
-                        nombre_tu:$('#nombre_tu').val(),
-                        descri_tu:$('#desc_tu').val()
-                       
-                       
+                        code_per:$('#codepermiso').val(),
+                        nombre_per:$('#nombre_permiso').val()
+                      
                         },
-                    url: base_url+'index.php/C_tipoUsuario/modificar_ajax',
+                    url: base_url+'index.php/C_permisos/modificar_ajax',
                     success: function(data)
                     {
 //                       

@@ -89,20 +89,20 @@ class C_permisos extends CI_Controller {
     
      public function modificar_ajax(){
          if($this->input->is_ajax_request())
-        {  $this->form_validation->set_rules('code_tu', 'Codigo', 'required|numeric');
-           $this->form_validation->set_rules('nombre_tu', 'Nombre', 'required|callback_letras_acentos_formato|max_length[30]|xss_clean');
-           $this->form_validation->set_rules('descri_tu', 'Descripción', 'required|callback_letras_acentos_formato|max_length[99]|xss_clean');
+        {  $this->form_validation->set_rules('code_per', 'Codigo', 'required|numeric');
+           $this->form_validation->set_rules('nombre_per', 'Nombre', 'required|callback_letras_acentos_formato|max_length[30]|xss_clean');
+         
         
           $this->form_validation->set_message('required', 'El campo {field} es requerido.');
           $this->form_validation->set_message('letras_acentos_formato', 'El campo {field} debe contener solo letras.');
           $this->form_validation->set_message('max_length', 'El campo {field} debe tener un máximo de 10 caracteres.');
           $this->form_validation->set_message('numeric', 'El campo {field} debe ser numérico.');
          if(  $this->form_validation->run())
-          {   $id =$this->input->post("code_tu");
-              $nombre =$this->input->post("nombre_tu");
-              $descripcion =$this->input->post("descri_tu");
-              $this->load->model("M_tipoUsuario");
-          if( $this->M_tipoUsuario->actualizar_tipousuario($id,$nombre,$descripcion)){
+          {   $id =$this->input->post("code_per");
+              $nombre =$this->input->post("nombre_per");
+             
+              $this->load->model("M_permiso");
+          if( $this->M_permiso->actualizar_permiso($id,$nombre)){
             echo json_encode(array("status" => "success"));
            }else{ echo json_encode(array("status" => "error")); }
            }else{ echo json_encode(array("error"=> validation_errors()));}
