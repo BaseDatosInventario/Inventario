@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <label>RUN</label>
 
-                                    <input type="text" id="run" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> <button type="submit" class="btn btn-success" onclick="mostar_cuenta_funcionario()">Buscar</button>
+                                    <input type="text"  id="run" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> <button type="submit" class="btn btn-success" onclick="mostar_cuenta_funcionario()">Buscar</button>
                                 </div> 
                             </div> 
                         </div>
@@ -85,8 +85,8 @@
 
                         <h1 class="text-danger"></h1>
                         <?php
-                        if (isset($mensaje)) {
-                            echo $mensaje;
+                        if (isset($mensaje2)) {
+                            echo $mensaje2;
                         }
                         ?>
 

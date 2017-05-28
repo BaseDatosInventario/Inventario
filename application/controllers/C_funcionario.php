@@ -54,18 +54,18 @@ class C_funcionario extends CI_Controller {
 //modificar funcionario---------------------------------------------------------------------------------------
     function p_div_mostrar_fun($num_run, $dv_run, $p_nombre, $p_apellido, $s_apellido) {
         echo'     <div class="col-sm-5 col-md-4">';
-        echo '                     <div class="form-group">';
-        echo '                       <label>RUN</label>';
-        echo '                      <input type="text" id="txt_rut" class="form-control" disabled="true" name="run" value="' . $num_run . '-' . $dv_run . '" maxlength="12" required="true" autocomplete=""/>';
-        echo '                 </div> ';
-        echo '                <div class="form-group">';
-        echo '                    <label>Primer Nombre</label>';
-        echo '                  <input type="text" class="form-control" value="' . $p_nombre . '" name="p_nombre"  required="true"/>';
-        echo '            </div>';
-        echo '            <div class="form-group">';
-        echo '              <label>Primer Apellido</label>';
-        echo '              <input type="text" class="form-control"  value="' . $p_apellido . '" name="p_apellido" required="true"/>';
-        echo '          </div>';
+        echo '<div class="form-group">';
+        echo '<label>RUN</label>';
+        echo '<input type="text" id="txt_rut" class="form-control"  name="run" value="' . $num_run . '-' . $dv_run . '" maxlength="12" required="true" autocomplete=""/>';
+        echo '</div> ';
+        echo '<div class="form-group">';
+        echo '<label>Primer Nombre</label>';
+        echo '<input type="text" class="form-control" value="' . $p_nombre . '" name="p_nombre"  required="true"/>';
+        echo '</div>';
+        echo '<div class="form-group">';
+        echo ' <label>Primer Apellido</label>';
+        echo ' <input type="text" class="form-control"  value="' . $p_apellido . '" name="p_apellido" required="true"/>';
+        echo '</div>';
         echo '         <div class="form-group">';
         echo '             <label>Segundo Apellido</label>';
         echo '            <input type="text" class="form-control"  value="' . $s_apellido . '" name="s_apellido"  max="64" min="17"required="true"/>';
@@ -130,12 +130,12 @@ class C_funcionario extends CI_Controller {
         $email = $this->input->post('email');
 
         if ($this->M_funcionario->modificar_funcionario($run, $p_nombre, $p_apellido, $s_apellido, $telefono, $direccion, $email)) {
-            $mensaje = "<script>alert('El funcionario se modifico')</script>";
+            $mensaje2 = "<script>alert('El funcionario se modifico')</script>";
         } else {
-            $mensaje = "<script>alert('El funcionario NO se modifico')</script>";
+            $mensaje2 = "<script>alert('El funcionario NO se modifico')</script>";
         }
         $this->head();
-        $this->load->view('GestionUsuario/Registro_usuario_view', compact('mensaje'));
+        $this->load->view('GestionUsuario/Registro_usuario_view', compact('mensaje2'));
         $this->load->view("layout/footer");
     }
 

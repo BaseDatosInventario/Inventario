@@ -89,8 +89,8 @@
 
                         <h1 class="text-danger"></h1>
                         <?php
-                        if (isset($mensaje)) {
-                            echo $mensaje;
+                        if (isset($mensaje2)) {
+                            echo $mensaje2;
                         }
                         ?>
 

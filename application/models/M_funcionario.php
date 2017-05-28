@@ -121,7 +121,7 @@ class M_funcionario extends CI_Model {
     function modidficar_cuenta($run,$clave,$id_tipo_usuario,$estado) {
         $rn = substr($run, 0, -2);
 
-        $this->db->where("num_run", $rn);
+        $this->db->where("num_run_f", $rn);
         $this->db->set("clave", $clave);
         $this->db->set("id_tipo_usuario", $id_tipo_usuario);
         $this->db->set("estado", $estado);
