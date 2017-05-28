@@ -17,21 +17,6 @@ class C_funcionario extends CI_Controller {
         parent::__construct();
     }
 
-    function mostrar_funcionarios() {
-        $run = $this->input->post('run');
-
-        echo "lol" . $run;
-
-        $dato = $this->M_funcionario->buscar_funcionario($run);
-
-        if ($dato != null) {
-
-            foreach ($dato->result() as $row) {
-                echo $row->p_nombre;
-            }
-        }
-    }
-
     function head() {
         $this->load->view("layout/cabecera");
         $this->load->view("layout/menu_lateral");
@@ -66,25 +51,94 @@ class C_funcionario extends CI_Controller {
         $this->load->view("layout/footer");
     }
 
-    function crear_cuenta_funcionario() {
+//modificar funcionario---------------------------------------------------------------------------------------
+    function p_div_mostrar_fun($num_run, $dv_run, $p_nombre, $p_apellido, $s_apellido) {
+        echo'     <div class="col-sm-5 col-md-4">';
+        echo '                     <div class="form-group">';
+        echo '                       <label>RUN</label>';
+        echo '                      <input type="text" id="txt_rut" class="form-control" disabled="true" name="run" value="' . $num_run . '-' . $dv_run . '" maxlength="12" required="true" autocomplete=""/>';
+        echo '                 </div> ';
+        echo '                <div class="form-group">';
+        echo '                    <label>Primer Nombre</label>';
+        echo '                  <input type="text" class="form-control" value="' . $p_nombre . '" name="p_nombre"  required="true"/>';
+        echo '            </div>';
+        echo '            <div class="form-group">';
+        echo '              <label>Primer Apellido</label>';
+        echo '              <input type="text" class="form-control"  value="' . $p_apellido . '" name="p_apellido" required="true"/>';
+        echo '          </div>';
+        echo '         <div class="form-group">';
+        echo '             <label>Segundo Apellido</label>';
+        echo '            <input type="text" class="form-control"  value="' . $s_apellido . '" name="s_apellido"  max="64" min="17"required="true"/>';
+        echo '        </div>';
+        echo '     </div>';
+    }
+
+    function s_div_mostrar_fun($telefono, $direccion, $email) {
+        echo '   <div class="col-sm-5 col-md-4">';
+        echo '                       <div class="form-group">';
+        echo '                     <label> Nº de Telefono</label>';
+        echo '                     <input type="text"  class="form-control" value="' . $telefono . '" name="telefono"  maxlength="8"required="true">';
+        echo '                 </div>';
+        echo '                 <div class="form-group">';
+        echo '                     <label>Direccion</label>';
+        echo '                     <input type="text" class="form-control" value="' . $direccion . '" name="direccion" required="true"/>';
+        echo '                 </div>';
+        echo '                 <div class="form-group">';
+        echo '      <label>Email</label>';
+        echo '                     <div class="input-group"><span class="input-group-addon" id="basic-addon1">@</span> <input class="form-control" type="email" value="' . $email . '" name="email" aria-describedby="basic-addon1"> </div>';
+        echo '                 </div>';
+        echo '             </div>';
+    }
+
+    function t_div_mostrar_fun() {
+        echo ' <div class="row">';
+        echo ' <div class="col-sm-5 col-md-4">';
+        echo ' <div class="form-group">';
+        echo ' <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>';
+        echo ' </div>';
+        echo ' </div>';
+        echo ' </div>';
+    }
+
+    function mostrar_funcionarios() {
         $run = $this->input->post('run');
-        $id_tipo_usuario = $this->input->post('id_tipo_usuario');
-        $clave = $this->input->post('clave');
-        $estado = $this->input->post('estado');
-        $dato = $this->M_funcionario->crear_cuenta_funcionario($run, $id_tipo_usuario, $clave, $estado);
 
-        if ($dato != null && $dato!=="cuenta existente") {
-            $mensaje = "El usuario Fue creado exitosamente";
-        } elseif ($dato === null) {
-            $mensaje = "El Funcionario no se encuentra en la base de datos";
-        }elseif ($dato==="cuenta existente") {
-            $mensaje = "La cuanta ya se creo";
+
+
+        $dato = $this->M_funcionario->buscar_funcionario($run);
+
+        if ($dato != null) {
+            echo '<div class="row">';
+            foreach ($dato->result() as $row) {
+                $this->p_div_mostrar_fun($row->num_run, $row->dv_run, $row->p_nombre, $row->p_apellido, $row->s_apellido);
+                $this->s_div_mostrar_fun($row->telefono, $row->direccion, $row->correo_electronico);
+            } echo '</div>';
+            $this->t_div_mostrar_fun();
+        } else {
+
+            echo '<h1>El wn no existe</h1>';
         }
+    }
 
-        $tipo_usuario = $this->M_usuario->tipo_usuario();
+    function modificar_funcionario() {
+        $run = $this->input->post('run');
+        $p_nombre = $this->input->post('p_nombre');
+        $p_apellido = $this->input->post('p_apellido');
+        $s_apellido = $this->input->post('s_apellido');
+        $telefono = $this->input->post('telefono');
+        $direccion = $this->input->post('direccion');
+        $email = $this->input->post('email');
+
+        if ($this->M_funcionario->modificar_funcionario($run, $p_nombre, $p_apellido, $s_apellido, $telefono, $direccion, $email)) {
+            $mensaje = "<script>alert('El funcionario se modifico')</script>";
+        } else {
+            $mensaje = "<script>alert('El funcionario NO se modifico')</script>";
+        }
         $this->head();
-        $this->load->view('GestionUsuario/crear_cuenta_view', compact('tipo_usuario','mensaje'));
+        $this->load->view('GestionUsuario/Registro_usuario_view', compact('mensaje'));
         $this->load->view("layout/footer");
     }
 
+//modificar funcionario---------------------------------------------------------------------------------------
+//
 }

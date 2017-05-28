@@ -103,4 +103,46 @@ class M_funcionario extends CI_Model {
         }
     }
 
+    function modificar_funcionario($run, $p_nombre, $p_apellido, $s_apellido, $telefono, $direccion, $email) {
+
+        $rn = substr($run, 0, -2);
+
+        $this->db->where("num_run", $rn);
+        $this->db->set("p_nombre", $p_nombre);
+        $this->db->set("p_apellido", $p_apellido);
+        $this->db->set("s_apellido", $s_apellido);
+        $this->db->set("telefono", $telefono);
+        $this->db->set("direccion", $direccion);
+        $this->db->set("correo_electronico", $email);
+        $dato = $this->db->update('funcionario');
+        return $dato;
+    }
+
+    function modidficar_cuenta($run,$clave,$id_tipo_usuario,$estado) {
+        $rn = substr($run, 0, -2);
+
+        $this->db->where("num_run", $rn);
+        $this->db->set("clave", $clave);
+        $this->db->set("id_tipo_usuario", $id_tipo_usuario);
+        $this->db->set("estado", $estado);
+        $dato = $this->db->update('usuario');
+        return $dato;
+    }
+
+    
+    function buscar_cuenta($run) {
+
+     
+        $rn = substr($run, 0, -2);
+        $this->db->where('num_run_f', $rn);       
+        $dato = $this->db->get('buscar_cuenta');
+
+        if ($dato->num_rows() > 0) {
+            return $dato;
+        } else {
+            return null;
+        }
+    }
+
+    
 }

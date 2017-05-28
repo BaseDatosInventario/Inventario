@@ -46,6 +46,6 @@
     <script src="<?php echo base_url("Maqueta/vendors/starrr/dist/starrr.js"); ?>"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url("Maqueta/build/js/custom.min.js"); ?>"></script>
-	
+
   </body>
 </html>

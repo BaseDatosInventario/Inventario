@@ -32,7 +32,7 @@
                                 <div class="col-sm-5 col-md-4">
                                     <div class="form-group">
                                         <label> Nº de Telefono</label>
-                                        <input type="text" class="form-control" name="telefono"  maxlength="8"required="true">
+                                        <input type="text"  class="form-control" name="telefono"  maxlength="8"required="true">
                                     </div>
                                     <div class="form-group">
                                         <label>Direccion</label>
@@ -77,22 +77,23 @@
                             <div class="col-sm-5 col-md-4">
                                 <div class="form-group">
                                     <label>RUN</label>
-                                    <button  id="Python">Python</button>	
-                                    <input type="text" id="run" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> <button type="submit" onclick="mostar_funcionario()">Buscar</button>
+
+                                    <input type="text" id="run" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> <button type="submit" class="btn btn-success" onclick="mostar_funcionario()">Buscar</button>
                                 </div> 
-                            </div>
-                            ohjjjh       <div class="container" id="contenido">
-                                ohjjjh 
-                            </div>
-
-
-                            <h1 class="text-danger"></h1>
-                            <?php
-                            if (isset($mensaje)) {
-                                echo $mensaje;
-                            }
-                            ?>
+                            </div> 
                         </div>
+                        <form id="contenido" action="<?php echo base_url('index.php/C_funcionario/modificar_funcionario') ?>" method="post">
+
+                        </form>
+
+
+                        <h1 class="text-danger"></h1>
+                        <?php
+                        if (isset($mensaje)) {
+                            echo $mensaje;
+                        }
+                        ?>
+
 
                     </div>
                 </div>
@@ -101,71 +102,24 @@
 
             <script>
 
-                                       
-//                                        $(document).ready(function () {
-//                                            $('#Python').click(function () {
-//                                                $("#contenido").load("<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>");
-//                                            });
-//
-//                                        });
-
-
 
                                         function mostar_funcionario() {
                                             var run = document.getElementById('run').value;
-//                                          var datos= 'nombre='+nombre +
-                                            $.ajax({/*Declaramos ajax*/
-                                                type: 'post', //Por qué método vamos a enviar la información.
-                                                url: '<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>', //Le especificamos la url donde un script PHP va a recibir esos datos.
-                                                data: run, //Le pasamos la variable datos, que contiene todos los datos que le habiamos pasado anteriormente
-                                                success: function (CallBack) { //Cuando los datos se envían correctamente hacemos una función que recibe un parametro le podemos poner el nombre que quieremos
-                                                    $("#contenido").html(CallBack); //Mostramos la información que nos ha devuelto el servidor en una etiqueta pasandole el CallBack.
+                                            var xhttp = new XMLHttpRequest();
+                                            xhttp.onreadystatechange = function () {
+                                                if (xhttp.readyState === 4 && xhttp.status === 200) {
+                                                    document.getElementById("contenido").innerHTML = xhttp.responseText;
                                                 }
-                                            });
-//                                            var run = document.getElementById('run').value;
-//                                            var xhttp = new XMLHttpRequest();
-//                                            xhttp.onreadystatechange = function () {
-//                                                if (xhttp.readyState === 4 && xhttp.status === 200) {
-//                                                    document.getElementById("funcionario").innerHTML = xhttp.responseText;
-//                                                }
-//                                            };
-//                                            xhttp.open("POST", "<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>", true);
-//                                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//                                            xhttp.send("&run=" + run + "");
+                                            };
+                                            xhttp.open("POST", "<?php echo base_url('index.php/C_funcionario/mostrar_funcionarios'); ?>", true);
+                                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                            xhttp.send("&run=" + run + "");
                                         }
             </script>
 
 
 
 
-<!--        <script>
-            $(document).ready(function () {
-
-                $("#show").change(function () {
-                    //  var valor =$("#clave").val();
-                    var type = $("#clave").attr("type");
-                    if (type === "password") {
-                        $("#clave").attr("type", "text");
-                    } else if (type === "text") {
-                        $("#clave").attr("type", "password");
-                    }
-
-                });
-
-
-                $("#formresgfun").submit(function (e) {
-                    e.preventDefault();
-                    if (validar_run()) {
-                        document.getElementById("formresgfun").submit();
-                    }
-
-                });
-            });
-
-
-
-
-        </script>-->
         </div>
     </div>
-    </div>
+</div>
