@@ -72,8 +72,8 @@ switch ($this->uri->segment(1))
         ?> <script src="<?php echo base_url("plantilla/js_functions/js_tipoUsuario.js"); ?>"></script> <?php break;
         case "C_permisos":
         ?> <script src="<?php echo base_url("plantilla/js_functions/js_permiso.js"); ?>"></script> <?php break; 
-        case "c_tipo_componente":
-        ?> <script src="<?php echo base_url("plantilla/js_functions/js_tipo_componente.js"); ?>"></script> <?php break; 
+        case "C_ventas":
+        ?> <script src="<?php echo base_url("plantilla/js_functions/js_ventas.js"); ?>"></script> <?php break; 
         case "c_plataforma":
         ?> <script src="<?php echo base_url("plantilla/js_functions/js_plataforma.js"); ?>"></script> <?php break; 
         case "c_sistema":
