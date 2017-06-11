@@ -14,7 +14,7 @@
                                 <div class="col-sm-5 col-md-4">
                                     <div class="form-group">
                                         <label>RUN</label>
-                                        <input type="text" id="txt_rut" class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> 
+                                        <input type="text" id="txt_rut" value=""class="form-control" name="run" maxlength="12" required="true" autocomplete=""/> 
                                     </div> 
                                     <div class="form-group">
                                         <label>Tipo Usuario</label>

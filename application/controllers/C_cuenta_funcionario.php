@@ -43,7 +43,7 @@ class C_cuenta_funcionario extends CI_Controller {
     function s_div_usuario_select() {
 
         $tipo_usuario = $this->M_usuario->tipo_usuario();
-        echo '                           <select class="form-control" required name="id_tipo_usuario">';
+        echo '                           <select class="form-control" required name="c_id_tipo_usuario">';
         echo '                               <option value="">Seleccion</option>';
         foreach ($tipo_usuario->result() as $row) {
             echo ' <option value="' . $row->id_tipo_usuario . '">' . $row->descripcion . '</option>';
@@ -52,11 +52,10 @@ class C_cuenta_funcionario extends CI_Controller {
     }
 
     function t_div_usuario($run, $dv_run) {
-        
         echo'  <div class="col-sm-5 col-md-4">';
         echo '<div class="form-group">';
         echo '<label>RUN</label>';    
-        echo '<input type="text" onfocus = "this.blur()" name="run"  value="' . $run . '-' . $dv_run . '" class="form-control"  maxlength="12"/> ';
+        echo '<input type="text" onfocus = "this.blur()" name="c_run"  value="' . $run . '-' . $dv_run . '" class="form-control"  maxlength="12"/> ';
         echo '</div>';
         echo '                       <div class="form-group">';
         echo '                           <label>Tipo Usuario</label>';
@@ -73,20 +72,20 @@ class C_cuenta_funcionario extends CI_Controller {
         if ($estado == 1) {
             echo '<div class="form-group">';
             echo '<label>Estado </label><br>';
-            echo 'Habilitar &nbsp;<input type="radio" checked="true" name="estado" value="1" >&nbsp;&nbsp;';
-            echo 'Deshabilitar &nbsp;<input type="radio" name="estado" value="0" ><br><br></div>';
+            echo 'Habilitar &nbsp;<input type="radio" checked="true" name="c_estado" value="1" >&nbsp;&nbsp;';
+            echo 'Deshabilitar &nbsp;<input type="radio" name="c_estado" value="0" ><br><br></div>';
         } else {
             if ($estado == 0) {
                 echo '<div class="form-group">';
                 echo '<label>Estado </label><br>';
-                echo 'Habilitar &nbsp;<input type="radio"  name="estado" value="1" >&nbsp;&nbsp;';
-                echo 'Deshabilitar &nbsp;<input type="radio" checked="true" name="estado" value="0" ><br><br> </div>';
+                echo 'Habilitar &nbsp;<input type="radio"  name="c_estado" value="1" >&nbsp;&nbsp;';
+                echo 'Deshabilitar &nbsp;<input type="radio" checked="true" name="c_estado" value="0" ><br><br> </div>';
             }
         }
 
         echo '                       <div class="form-group">';
         echo '                           <label>Contraceña</label>';
-        echo '                           <input type="password" class="form-control" name="clave"  max="16" min="17"required="true"/></div></div>';
+        echo '                           <input type="password" class="form-control" name="c_clave"  max="16" min="17"required="true"/></div></div>';
     }
 
     function s_div_mostrar_usu() {
@@ -106,7 +105,7 @@ class C_cuenta_funcionario extends CI_Controller {
         if ($dato != null) {
             echo '<div class="row">';
             foreach ($dato->result() as $row) {
-                $this->p_div_usuario($row->num_run_f, $row->dv_run, $row->estado);
+                $this->p_div_usuario($row->num_run_f, $row->dv_run, $row->activo);
             }
             echo '</div>';
             $this->s_div_mostrar_usu();
@@ -116,11 +115,11 @@ class C_cuenta_funcionario extends CI_Controller {
     }
 
     function modificar_cuenta_funcionario() {
-        $run = $this->input->post('run');
+        $run = $this->input->post('c_run');
         
-        $id_tipo_usuario = $this->input->post('id_tipo_usuario');
-        $clave = $this->input->post('clave');
-        $estado = $this->input->post('estado');
+        $id_tipo_usuario = $this->input->post('c_id_tipo_usuario');
+        $clave = $this->input->post('c_clave');
+        $estado = $this->input->post('c_estado');
         $tipo_usuario = $this->M_usuario->tipo_usuario();
 
         if ($this->M_funcionario->modidficar_cuenta($run, $clave, $id_tipo_usuario, $estado)) {

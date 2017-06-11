@@ -56,7 +56,7 @@ class C_funcionario extends CI_Controller {
         echo'     <div class="col-sm-5 col-md-4">';
         echo '<div class="form-group">';
         echo '<label>RUN</label>';
-        echo '<input type="text" id="txt_rut" class="form-control"  name="run" value="' . $num_run . '-' . $dv_run . '" maxlength="12" required="true" autocomplete=""/>';
+        echo '<input type="text" id="txt_rut" class="form-control" onfocus = "this.blur()" name="run" value="' . $num_run . '-' . $dv_run . '" maxlength="12" required="true" autocomplete=""/>';
         echo '</div> ';
         echo '<div class="form-group">';
         echo '<label>Primer Nombre</label>';

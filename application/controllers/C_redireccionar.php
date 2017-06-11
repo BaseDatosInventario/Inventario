@@ -32,4 +32,20 @@ class C_redireccionar extends CI_Controller {
         $this->load->view("layout/footer");
     }
 
+    function pre_venta() {
+        $run_usuario = $this->session->userdata('run_usuario');
+        date_default_timezone_set('America/Santiago'); // zona horaria a la de Chile
+        $fecha = date('Y-m-d');
+        $dato = $this->M_venta->buscar_pre_venta($run_usuario, $fecha);
+        return $dato;
+    }
+
+    function venta() {
+        $num_venta=$this->M_venta->ultima_venta();
+        $dato = $this->pre_venta();
+        $this->head();
+        $this->load->view('GestionVenta/venta.php' , compact('dato','num_venta'));
+        $this->load->view("layout/footer");
+    }
+
 }

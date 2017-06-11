@@ -89,7 +89,7 @@ class M_funcionario extends CI_Model {
             $rn = substr($run, 0, -2);
 
             $usuario = array(
-                'num_run_f' => $rn, 'id_tipo_usuario' => $id_tipo_usuario, 'clave' => $clave, 'estado' => $estado
+                'num_run_f' => $rn, 'id_tipo_usuario' => $id_tipo_usuario, 'clave' => $clave, 'activo' => $estado
             );
 
             $dato = $this->db->insert('usuario', $usuario);
@@ -124,7 +124,7 @@ class M_funcionario extends CI_Model {
         $this->db->where("num_run_f", $rn);
         $this->db->set("clave", $clave);
         $this->db->set("id_tipo_usuario", $id_tipo_usuario);
-        $this->db->set("estado", $estado);
+        $this->db->set("activo", $estado);
         $dato = $this->db->update('usuario');
         return $dato;
     }
